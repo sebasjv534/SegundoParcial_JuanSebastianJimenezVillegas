@@ -1,0 +1,6 @@
+Para realizar la funcionalidad de auditoría se realizará con el patrón Strategy, dado que este patrón nos permitirá encapsular diferentes algoritmos o comportamientos de registro de errores en clases separadas, lo que facilitará la gestión y extensión de la funcionalidad de registro de errores en el módulo de auditoría.
+
+Lo primero que se hará la 
+Implementación del Patrón Estrategiad definiendo una interfaz ErrorLoggerStrategy que contendrá un método logError(error: Error) para registrar los errores.
+Luego, crearemos dos clases concretas que implementarán esta interfaz: FileErrorLoggerStrategy para el registro de errores en un archivo y DatabaseErrorLoggerStrategy para el registro en una base de datos (aunque en este caso lanzará una excepción indicando que la funcionalidad no está implementada).
+El ErrorLoggerService utilizará una instancia de ErrorLoggerStrategy para realizar el registro de errores, permitiendo cambiar dinámicamente la estrategia de registro sin modificar el código del servicio.
