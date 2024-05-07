@@ -4,13 +4,13 @@
  */
 package org.example.auditoria;
 
-/**
- *
- * @author sala8
- */
-public class DataBaseErrorLoggerStrategy implements ErrorLoggerStrategy{
+import org.example.domain.User;
+import org.springframework.stereotype.Component;
+
+@Component
+public class DataBaseErrorLoggerStrategy implements ErrorLoggerStrategy {
     @Override
-    public void logError(Error error) {
+    public void logError(Error error, User user) {
         throw new UnsupportedOperationException("No se ha implementado la funcionalidad para almacenar los datos: " + error.toString());
     }
 }

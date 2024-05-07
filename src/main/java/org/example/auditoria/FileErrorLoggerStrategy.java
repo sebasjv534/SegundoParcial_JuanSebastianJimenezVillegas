@@ -4,12 +4,22 @@
  */
 package org.example.auditoria;
 
+import org.example.domain.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
 /**
  *
  * @author sala8
  */
-public class FileErrorLoggerStrategy implements ErrorLoggerStrategy{
-     @Override
-    public void logError(Error error) {
+@Component
+public class FileErrorLoggerStrategy implements ErrorLoggerStrategy {
+    private static final Logger logger = LoggerFactory.getLogger(FileErrorLoggerStrategy.class);
+
+    @Override
+    public void logError(Error error, User user) {
+        logger.error("Error occurred for user: {}, error: {}", user, error);
+        // Aquí puedes implementar la lógica para registrar el error en un archivo
     }
 }
